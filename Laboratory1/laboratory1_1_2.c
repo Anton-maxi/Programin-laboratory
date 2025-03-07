@@ -20,7 +20,7 @@ int main() {
     even_count++;
     }
     }
-    float even_avg = (even_count != 0) ? (float)even_sum / even_count : 0;
+    float even_avg = (float)even_sum / even_count;
 
     // б) Добуток непарних чисел та їх середнє геометричне
     int odd_prod = 1, odd_count = 0;

@@ -2,21 +2,21 @@
 
 #include <conio.h>
 
-#define n 10
+#define numberElements 10
 
 int main(){ 
-int mas [n], i, k, s; //оголошуємо масив із 10 цілих чисел
+int mas [numberElements], i, k, s; //оголошуємо масив із 10 цілих чисел
 float sa;
 
 puts (" Enter elements of massive \n"); // запрошення
 
-for ( i = 0; i < n; i ++)
+for ( i = 0; i < numberElements; i ++)
 
 scanf ("%i", &mas[i]); // вводимо mas[i]
 
 k=0; s=0; // обнуляємо суму та лічильник
 
-for ( i = 0; i < n; i ++)
+for ( i = 0; i < numberElements; i ++)
 
 // у циклі обчислюємо суму та кількість елементів < 0
 

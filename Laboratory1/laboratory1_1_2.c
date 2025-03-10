@@ -40,7 +40,6 @@ int main() {
     max_index = i;
     }
     }
-
     // Виведення результатів
     printf("Sum of even numbers: %d\n", even_sum);
     printf("Average of even numbers: %f\n", even_avg);

@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include <conio.h>
-
 #define numberElements 10
 
 int main(){ 

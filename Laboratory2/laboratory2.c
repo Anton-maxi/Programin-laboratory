@@ -26,6 +26,16 @@ for (i = 0; i < numberElements; i++) {
     }
     printf("%4.2f\n", min[i]);
 }
+float minimal = min[0];
+for (i = 1; i < numberElements; i++){
+if (i >= (numberElements + 1) / 2) {
+    break; 
+    }
+    if(min[i]<minimal){
+    minimal = min[i];
+}
+}
+printf("The minimum of the “min” array: %4.2f");
 return 0;
 
 }

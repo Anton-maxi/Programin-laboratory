@@ -35,7 +35,7 @@ printf("No item found for this search key!");
 int sort;
 for(int i=1; i<numberElements; i++) 
 for(int j=0; j<numberElements-i; j++)
-if(X[j]>X[j+1]) 
+if(X[j]<X[j+1]) 
 {
 sort = X[j]; 
 X[j] = X[j+1]; 
@@ -46,6 +46,18 @@ printf("\nAfter sorting:");
 for(int i=0; i<numberElements; i++)
 printf(" %.1f ", X[i] );
 // 5)
+for(int i=1; i<numberElements; i++)   // сотртування для бінарного пошуку
+for(int j=0; j<numberElements-i; j++)
+if(X[j]>X[j+1]) 
+{
+sort = X[j]; 
+X[j] = X[j+1]; 
+X[j+1] = sort; 
+
+}
+printf("\nAfter sorting for for searching:");
+for(int i=0; i<numberElements; i++)
+printf(" %.1f ", X[i] );
 int Left = 0, Right = numberElements - 1, Middle, i; 
 flag=0;
 printf("\nEnter the value of the target element A = ");
@@ -61,7 +73,7 @@ else Right = Middle -1;
 }
 if ( flag )
 
-printf ( "Number of the item found by this search key: %d", Middle );
+printf ( "Number of the item found by this search key: %d", Middle+1 );
 
 else printf ( "Not found" );
 

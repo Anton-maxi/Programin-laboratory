@@ -11,10 +11,6 @@ int main()
     scanf("%d", &number_Elements_string);
     printf("Введіть кількість стовпчиків матриці: ");
     scanf("%d", &number_Elements_stack);
-    if (number_Elements_stack > 10 || number_Elements_string>10 ) {
-        printf("Введіть меншу кількість стовпчиків та рядків, щоб кількість Рядків та Стовпчиків <10");
-        return 0;
-    }
     float* data = (float*)malloc(number_Elements_stack * number_Elements_string * sizeof(float));
     float** B = (float**)malloc(number_Elements_string * sizeof(float*));
     for (int i = 0; i < number_Elements_string; ++i) {

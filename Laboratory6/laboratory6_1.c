@@ -16,7 +16,7 @@ int main()
         for (int j = 0; j < columns; j+=1)
         {
         printf("X[%d][%d]=", i,j);
-        scanf("%d", &X[i][j]);
+        scanf("%f", &X[i][j]);
         } 
     }
     printf("Введіть елементи матриці Y:\n");
@@ -24,32 +24,30 @@ int main()
         for (int j = 0; j < columns; j+=1)
         {
         printf("Y[%d][%d]=", i,j);
-        scanf("%d", &Y[i][j]);
+        scanf("%f", &Y[i][j]);
         }
     }
+    float C[strings][columns];
     for(int i=0; i< strings; i+=1){
-            for(int j=0;j<columns;j+=1){
-                printf("%f\n", X[i][j]);
-                if(j>=columns)
-                printf("\n");
-            }
+        for(int j=0;j<columns;j+=1){
+            C[i][j]= X[i][j] + Y[i][j];
         }
-
-    // float C[strings][columns];
-    // for(int i=0; i< strings; i+=1){
-    //     for(int j=0;j<columns;j+=1){
-    //         C[i][j]= X[i][j] + Y[i][j];
-    //     }
-    // }
-    // for(int i=0; i< strings; i+=1){
-    //     for(int j=0;j<columns;j+=1){
-    //         printf("%f\t", C[i][j]);
-    //         // if(j>=columns)
-    //         // printf("\n");
-    //     }
-    // }
-
-
-
+    }
+    printf("Матриця С:\n");
+    for(int i=0; i< strings; i+=1){
+        for(int j=0;j<columns;j+=1){
+            printf("%f\t", C[i][j]);
+        }
+        printf("\n");
+    }
+    float max = C[0][0];
+    for(int i=1; i< strings; i+=1){
+        for(int j=1;j<columns;j+=1){
+        if(max<=C[i][j]){
+            max = C[i][j];
+        }
+        }
+    }
+    printf("Максимальний елемент матриці С: C[%d][%d]=%f", strings, columns, max);
     return 0;
 }

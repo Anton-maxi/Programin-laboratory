@@ -15,8 +15,6 @@ int compareStrings(const char *s1, const char *s2) {
         s1++;
         s2++;
     }
-
-    // Якщо один із рядків закінчився, повертаємо різницю
 }
 
 int main() {

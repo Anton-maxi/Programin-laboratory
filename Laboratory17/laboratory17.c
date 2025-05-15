@@ -30,7 +30,8 @@ int ArrayZ (float arr1[], int n1, float arr2[], int n2, float z[]){
 int main() {
 
     system("chcp 65001");
-    int nx=5, ny=3, nz=8, g;
+    int nx=100, ny=80, g;
+    int nz=nx+ny;
     float x[nx], y[ny], z[nz];
     printf("Введіть елементи масиву х:\n");
     inputArray(x, nx);

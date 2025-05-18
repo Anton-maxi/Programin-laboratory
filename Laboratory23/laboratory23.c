@@ -12,7 +12,7 @@ int main ( )
 
 {
 system("chcp 65001");
-struct motoc
+struct ships
 {
 char name[15];
 char material[15];

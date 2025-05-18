@@ -49,7 +49,6 @@ fprintf(f1, "Назва= %s\nВодотоннажність= %lg\nМатеріа
 printf("Назва= %s\nВодотоннажність= %lg\nМатеріал= %s\nКількість членів екіпажу= %d\nШвидкість= %lg", x[i].name, x[i].water_tonnage, x[i].material, x[i].number_crew, x[i].speed);
 }
 fclose(f1);
-getch();
 return 0;
 
 }

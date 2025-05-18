@@ -3,56 +3,58 @@
 //Кількість плаваючих засобів ввести із клавіатури.
 
 #include<stdio.h>
-
+#include <stdlib.h>
 #include<conio.h>
 
 #include<malloc.h>
 
 int main()
 {
-struct sotrudnic
+    system("chcp 65001");
+struct ships
 {
-char name[30];
-char dolgnost[20];
-double age;
-double zarplata;
+    char name[15];
+    char material[15];
+    double water_tonnage, speed;
+    int number_crew;
 };
 
-int i, n; // n - кількість співробітників
+int n; // n - кількість кораблів
 FILE*p1;
 p1=fopen("file_sotr.txt","w+");
-puts("Enter n=");
+printf("Введіть кількість кораблів = ");
 scanf("%d",&n);
-struct sotrudnic *x;
-x=(struct sotrudnic*)malloc(n*sizeof(struct sotrudnic));
-for(i=0;i<n;i++)
+struct ships *x;
+x=(struct ships*)malloc(n*sizeof(struct ships));
+printf("Введіть інформацію про плавуючий засіб на англійській і без пробілів:\n");
+for (int i=0;i<n; i+=1)
 {
-printf("Enter x[%i].name\n", i+1);
-scanf("%s",x[i].name);
-printf("Enter dolgnost\n");
-scanf("%s",x[i].dolgnost);
-printf("Enter age\n");
-scanf("%lf",&x[i].age);
-printf("Enter zarplata\n");
-scanf("%lf",&x[i].zarplata);
-fwrite(&x[i],sizeof(struct sotrudnic),1,p1);
+printf("Корабль Номер %d:\n", i+1);
+printf("Назва- ");
+scanf("%s",&x[i].name);
+printf("Водотоннажність- ");
+scanf("%lf",&x[i].water_tonnage);
+printf("Матеріал, з якого виготовлений корпус- ");
+scanf("%s",&x[i].material);
+printf("Кількість членів екіпажу- ");
+scanf("%d",&x[i].number_crew);
+printf("Швидкість руху- ");
+scanf("%lf",&x[i].speed);
+fwrite(&x[i],sizeof(struct ships),1,p1);
 }
-rewind(p1);
-for(i=0;i<n;i++)
+for(int i=0;i<n;i+=1)
 {
-fread(&x[i],sizeof(struct sotrudnic),1,p1);
-printf("x[%d].name=%s \nx[%d].dolgnost=%s \nx[%d].age=%lf \nzarplata=%lf\n", i+1, x[i].name, i+1, x[i].dolgnost, i+1, x[i].age, x[i].zarplata);
-printf("Enter new zarplata for %s \n",x[i].name);
-scanf("%lf",&x[i].zarplata);
-fseek(p1, -(long)sizeof(struct sotrudnic),1);
-fwrite(&x[i],sizeof(struct sotrudnic),1,p1);
-fseek(p1, -(long)sizeof(struct sotrudnic),1);
-fread(&x[i],sizeof(struct sotrudnic),1,p1);
-printf("new data for %s dolgnost=%s age=%lf zarplata=%lf\n",x[i].name,x[i].dolgnost,x[i].age,x[i].zarplata);
+fread(&x[i],sizeof(struct ships),0,p1);
+printf("Введіть нову швидкість для %s \n", x[i].name);
+scanf("%lf",&x[i].speed);
+fseek(p1, -(long)sizeof(struct ships),1);
+fwrite(&x[i],sizeof(struct ships),1,p1);
+fseek(p1, -(long)sizeof(struct ships),1);
+fread(&x[i],sizeof(struct ships),0,p1);
+printf("Нові дані для %s:\nВодотоннажність - %lg\nМатеріал -  %s\nКількість членів екіпажу -  %d\nШвидкість - %lg\n", x[i].name, x[i].water_tonnage, x[i].material, x[i].number_crew, x[i].speed);
 }
 puts("FINISH!");
 fclose(p1);
-getch();
 return 0;
 
 }

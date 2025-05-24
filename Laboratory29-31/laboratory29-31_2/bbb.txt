@@ -1,0 +1,11 @@
+exp (a,b)
+{
+	int z;
+	z = 1;
+	while b do
+		if b%2 then z = z*a
+};
+	a = a*a; b = b/2
+	};
+	return z
+}
